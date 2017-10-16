@@ -33,6 +33,7 @@ unittests_SOURCES = \
 	PseudoLongProductTest.cc \
 	SetFactoryTest.cc \
 	spolyTest.cc \
+	symmGBTest.cc \
 	term_accumulateTest.cc \
 	VariableFactoryTest.cc \
 	weak_pointersTest.cc \

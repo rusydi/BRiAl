@@ -97,6 +97,7 @@ nobase_include_HEADERS = \
 	polybori/groebner/ShorterEliminationLength.h \
 	polybori/groebner/ShorterEliminationLengthModified.h \
 	polybori/groebner/SlimgbReduction.h \
+	polybori/groebner/symmGB.h \
 	polybori/groebner/tables.h \
 	polybori/groebner/TermsFacade.h \
 	polybori/groebner/TimesConstantImplication.h \

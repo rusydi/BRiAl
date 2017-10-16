@@ -31,4 +31,5 @@ libbrial_groebner_la_SOURCES = \
 	PolyEntry.cc \
 	polynomial_properties.cc \
 	randomset.cc \
-	ReductionStrategy.cc
+	ReductionStrategy.cc \
+	symmGB.cc
