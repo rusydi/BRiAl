@@ -45,7 +45,7 @@ std::vector<BoolePolynomial> symmGB_F2_python(
     double             max_growth=2.0,
     double             step_factor=1.0,
     bool               implications=false,
-    bool               prot=true,
+    bool               prot=false,
     bool               full_prot=false,
     std::size_t        selection_size=1000,
     bool               opt_exchange=true,

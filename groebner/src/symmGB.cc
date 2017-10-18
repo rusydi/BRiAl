@@ -239,6 +239,7 @@ std::vector<BoolePolynomial> symmGB_F2_python(
             auto end = std::remove_if(ps.begin(), ps.end(),
                     [](const BoolePolynomial & p){ return p.isZero(); });
             ps.erase(end, ps.end());
+
             std::size_t min_degree;
             if (ps.size() > 0)
             {
@@ -247,7 +248,7 @@ std::vector<BoolePolynomial> symmGB_F2_python(
                         {
                             return l.deg() < r.deg();
                         });
-                std::size_t min_degree = it->deg();
+                min_degree = it->deg();
             }
 
             std::vector<BoolePolynomial> new_ps;

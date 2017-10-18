@@ -17,6 +17,12 @@ struct I
 {
     I() : ring(R), x0(4, R), x1(3, R), x2(2, R), x3(1, R), x4(0, R)
     {
+        ring.setVariableName(0, "x4");
+        ring.setVariableName(1, "x3");
+        ring.setVariableName(2, "x2");
+        ring.setVariableName(3, "x1");
+        ring.setVariableName(4, "x0");
+
         BoolePolynomial f0 = x3*x0 + x3*x1 + x4*x1 + x4*x3 + x0 + x1 + x2 + x3 + x4;
         BoolePolynomial f1 = x1*x0 + x2*x1 + x3*x1 + x3*x2 + x4*x2 + x4*x3 + x0;
         BoolePolynomial f2 = x2*x0 + x2*x1 + x3*x0 + x3*x1 + x4*x0 + x4*x1 + x1 + x2 + x3;
@@ -67,12 +73,22 @@ BOOST_AUTO_TEST_CASE(TestSymmGB_F2_C)
     BOOST_CHECK_EQUAL_COLLECTIONS(G.begin(), G.end(), gb.begin(), gb.end());
 }
 
-/*
-BOOST_AUTO_TEST_CASE(TestSymmGB_F2_python)
+
+BOOST_AUTO_TEST_CASE(TestSymmGB_F2_python_has_solution)
 {
     std::vector<BoolePolynomial> G = symmGB_F2_python(generators);
     BOOST_CHECK_EQUAL_COLLECTIONS(G.begin(), G.end(), gb.begin(), gb.end());
 }
-*/
+
+BOOST_AUTO_TEST_CASE(TestSymmGB_F2_python_no_solution)
+{
+    std::vector<BoolePolynomial> F(generators);
+    F[0] += 1; //modify constant term so that the system has no solution
+    std::vector<BoolePolynomial> G = symmGB_F2_python(F);
+
+    BOOST_CHECK(G.size() == 1);
+    BOOST_CHECK(G[0] == 1);
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()
